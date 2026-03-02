@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Pulse | Understanding Our Planet</title>
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --secondary: #2196F3;
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --accent: #ff5722;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        header h1 { font-size: 4rem; margin-bottom: 0; }
+        header p { font-size: 1.5rem; }
+
+        /* Content Sections */
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        /* Interactive Element: Temperature Toggle */
+        .interactive-box {
+            background: #e3f2fd;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px dashed var(--secondary);
+        }
+
+        .slider-container {
+            margin: 20px 0;
+        }
+
+        #temp-slider {
+            width: 80%;
+            cursor: pointer;
+        }
+
+        /* Visuals */
+        .img-placeholder {
+            width: 100%;
+            height: 250px;
+            background: #ddd;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#science">The Science</a>
+        <a href="#impact">Impact</a>
+        <a href="#interactive">Simulator</a>
+        <a href="#action">Take Action</a>
+    </nav>
+
+    <header id="home">
+        <h1>Climate Pulse</h1>
+        <p>The Earth is changing. Are we ready?</p>
+    </header>
+
+    <section id="science">
+        <h2>The Science Behind Climate Change</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="greenhousegas.jpg" alt="CO2" class="img-placeholder">
+                <div class="card" style="border-left: 5px solid var(--primary);">
+                  
+                <h3>Greenhouse Effect</h3>
+                <p>The greenhouse effect happens when gases like carbon dioxide and methane trap heat in Earth’s atmosphere, making the planet warmer. This process is natural and necessary for life, but too many greenhouse gases from human activities cause excessive warming.</p>
+            </div>
+            <div class="card">
+                <style>
+  .glow-border {
+    width: 300px;
+    border-radius: 10px;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 0 20px 5px rgba(52, 152, 219, 0.7);
+    transition: transform 0.3s; /* Smooth zoom on hover */
+  }
+
+  .glow-border:hover {
+    transform: scale(1.05); /* Image grows slightly when touched */
+    box-shadow: 0 0 30px 10px rgba(52, 152, 219, 0.9);
+  }
+</style>
+
+<img src="arcticmelt.jpg" class="img-placeholder"alt="ice" >
+               
+                <h3>Arctic Melting</h3>
+                <p>Arctic melting refers to the rapid loss of sea ice in the Arctic region due to rising global temperatures. As the ice melts, it contributes to sea-level rise and reduces Earth’s ability to reflect sunlight, which further accelerates warming.</p>
+      
+            </div>
+        </div>
+    </section>
+
+    <section id="interactive" style="background: #fff;">
+        <h2>Interactive: Rising Degrees</h2>
+        <p>Move the slider to see how different temperature increases affect our oceans.</p>
+        <div class="interactive-box">
+            <h3 id="temp-display">+1.0°C Global Increase</h3>
+            <div class="slider-container">
+                <input type="range" id="temp-slider" min="1" max="5" step="0.5" value="1">
+            </div>
+            <p id="impact-text">Coral reefs begin to bleach, and extreme weather events become more frequent.</p>
+            <div id="visual-cue" style="height: 20px; width: 100%; background: #2196F3; border-radius: 10px; transition: 0.5s;"></div>
+        </div>
+    </section>
+
+    <section id="impact">
+        <h2>Global Consequences</h2>
+        <ul>
+            <li><strong>Biodiversity Loss:</strong> Over 1 million species are at risk of extinction.</li>
+            <li><strong>Agriculture:</strong> Shifting rain patterns threaten global food security.</li>
+            <li><strong>Sea Levels:</strong> Coastal cities face permanent flooding by 2050.</li>
+        </ul>
+    </section>
+
+    <section id="action">
+        <h2>What Can You Do?</h2>
+        <div class="grid">
+            <div class="card" style="border-left: 5px solid var(--primary);">
+                <h4>Renewable Energy</h4>
+                <p>Switching to solar or wind reduces your carbon footprint significantly.</p>
+            </div>
+            <div class="card" style="border-left: 5px solid var(--primary);">
+                <h4>Reduce Consumption</h4>
+                <p>The circular economy focuses on repairing, reusing, and recycling.</p>
+            </div>
+        </div>
+    </section>
+    
+<!-- Image Map Generated by http://www.image-map.net/ -->
+<img src="climatechange.jpg" width="360" height="500"usemap="#image-map">
+
+
+
+<map name="image-map">
+    <area target="_self" alt="" title="" href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.un.org/en/climatechange/science/climate-issues/food&amp;ved=2ahUKEwj9i-6Yjf6SAxWb8DgGHc_gDNUQFnoECCAQAQ&amp;usg=AOvVaw2pslYyIwLeXxgQvMITU5Q6" coords="154,160,156" shape="circle">
+    <area target="_self" alt="" title="" href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://unfccc.int/news/seven-ways-to-make-your-travel-climate-friendly&amp;ved=2ahUKEwit7cuqjf6SAxUU1zgGHRZcKWYQFnoECFkQAQ&amp;usg=AOvVaw38HF9g1TpQzTsUse8SqXus" coords="483,166,154" shape="circle">
+    <area target="_self" alt="" title="" href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.un.org/en/actnow/home-energy&amp;ved=2ahUKEwjHiLW_jf6SAxX62TgGHTweIoIQFnoECBoQAQ&amp;usg=AOvVaw3fe47YPfBGtaJvBwjCn9hw" coords="141,495,168" shape="circle">
+    <area target="_self" alt="" title="" href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.who.int/europe/news/item/07-06-2022-cycling-and-walking-can-help-reduce-physical-inactivity-and-air-pollution--save-lives-and-mitigate-climate-change&amp;ved=2ahUKEwjIloL4jf6SAxVtxDgGHWfMFw0QFnoECBwQAQ&amp;usg=AOvVaw29Z-hASvFeTCzNtrcbi7Z6" coords="469,490,149" shape="circle">
+    <area target="_self" alt="" title="" href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.saveonenergy.com/green-energy/save-energy-go-green/&amp;ved=2ahUKEwiP9LqSjv6SAxWVyzgGHTXyFjwQFnoECEoQAQ&amp;usg=AOvVaw0bse91zU9o0GoMm4HfuSV8" coords="150,819,146" shape="circle">
+    <area target="_self" alt="" title="" href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.who.int/europe/news/item/07-06-2022-cycling-and-walking-can-help-reduce-physical-inactivity-and-air-pollution--save-lives-and-mitigate-climate-change&amp;ved=2ahUKEwjIloL4jf6SAxVtxDgGHWfMFw0QFnoECBwQAQ&amp;usg=AOvVaw29Z-hASvFeTCzNtrcbi7Z6" coords="473,816,158" shape="circle">
+    <area target="_self" alt="" title="" href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://climate.gov.ph/news/937&amp;ved=2ahUKEwjynKemjv6SAxXVyzgGHZDBDM0QFnoECBsQAQ&amp;usg=AOvVaw1ilM8ZY_SMs5ApQtyxMBhb" coords="157,1129,154" shape="circle">
+    <area target="_self" alt="" title="" href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://travelifestaybetter.com/the-3rs-explained-reduce-reuse-recycle/&amp;ved=2ahUKEwjIzs3Ljv6SAxXO3TgGHcv-K_sQFnoECCMQAQ&amp;usg=AOvVaw3FourEKHX_0jfSqJg4gkrD" coords="464,1142,149" shape="circle">
+</map>
+
+
+    <footer>
+        <p>CLIMATE CHANGE/PULSE</p>
+    </footer>
+
+    <script>
+        const slider = document.getElementById('temp-slider');
+        const tempDisplay = document.getElementById('temp-display');
+        const impactText = document.getElementById('impact-text');
+        const visualCue = document.getElementById('visual-cue');
+
+        const impacts = {
+            1: "Coral reefs begin to bleach, and extreme weather events become more frequent.",
+            1.5: "Critical threshold. Arctic summer ice survives, but 70% of corals die.",
+            2: "99% of coral reefs are lost. Sea levels rise by 0.46 meters.",
+            3: "Heatwaves become lethal in many regions. Major crop failures are likely.",
+            4: "Widespread ecosystem collapse. Entire coastal cities are submerged.",
+            5: "Uninhabitable zones expand significantly. Global economy destabilizes."
+        };
+
+        slider.oninput = function() {
+            const val = this.value;
+            tempDisplay.innerText = `+${val}°C Global Increase`;
+            impactText.innerText = impacts[val] || "Severe ecological transformations occur.";
+            
+            // Visual feedback: change color and width
+            const intensity = (val - 1) * 25;
+            visualCue.style.backgroundColor = `rgb(${150 + (val * 20)}, ${100 - (val * 15)}, 200)`;
+            visualCue.style.width = `${20 + (val * 15)}%`;
+        }
+    </script>
+</body>
+</html>
